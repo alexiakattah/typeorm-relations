@@ -1,21 +1,25 @@
 import {
-  Entity,
   Column,
-  PrimaryGeneratedColumn,
   CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
-class Customer {
+@Entity('customers')
+export default class Customer {
+  @PrimaryGeneratedColumn()
   id: string;
 
+  @Column()
   name: string;
 
+  @Column()
   email: string;
 
+  @CreateDateColumn()
   created_at: Date;
 
+  @UpdateDateColumn()
   updated_at: Date;
 }
-
-export default Customer;
